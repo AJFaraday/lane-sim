@@ -10,11 +10,13 @@ require File.join(File.dirname(__FILE__),'common','draw.rb')
 
 require File.join(File.dirname(__FILE__),'walker','position.rb')
 require File.join(File.dirname(__FILE__),'walker','movement.rb')
+require File.join(File.dirname(__FILE__),'walker','teleport.rb')
 require File.join(File.dirname(__FILE__),'walker.rb')
 
 require File.join(File.dirname(__FILE__),'feature.rb')
 require File.join(File.dirname(__FILE__),'features','blocker.rb')
 require File.join(File.dirname(__FILE__),'features','exit.rb')
 require File.join(File.dirname(__FILE__),'features','entrance.rb')
+require File.join(File.dirname(__FILE__),'features','portal.rb')
 
 require File.join(File.dirname(__FILE__),'game.rb')

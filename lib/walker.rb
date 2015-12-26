@@ -9,6 +9,8 @@ class Walker
   # contains drawing rules, all of 'draw' method
   include Draw
 
+  include WalkerTeleport
+
   IMAGE = Gosu::Image.new(
     File.join(
       File.dirname(__FILE__),
@@ -31,7 +33,7 @@ class Walker
     init_step_time
     init_position
 
-    puts "Walker added".ljust(20) +
+    puts "Walker added".ljust(25) +
            ('#' * @@walkers.count)
 
   end
@@ -69,7 +71,7 @@ class Walker
     @@walkers.index(self)
   end
 
-  def all
+  def self.all
     @@walkers
   end
 
@@ -82,7 +84,7 @@ class Walker
     @game.updatable_objects.delete(self)
     @game.drawable_objects.delete(self)
     @@walkers.delete(self)
-    puts "Walker removed".ljust(20) +
+    puts "Walker removed".ljust(25) +
            ('#' * @@walkers.count)
   end
 

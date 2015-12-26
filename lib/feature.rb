@@ -4,10 +4,11 @@ class Feature
 
   attr_accessor :x, :y
 
-  def initialize(game, x=nil, y=nil)
+  def initialize(game, x=nil, y=nil, attrs={})
     @game = game
     @x = x
     @y = y
+    @attrs = attrs
     @@features ||= []
     init_position
     @@features << self
