@@ -19,9 +19,7 @@ class Walker
 
   attr_accessor :x, :y
 
-  def initialize(game, x=0, y=0)
-    @x = x
-    @y = y
+  def initialize(game)
     @game = game
     @game.drawable_objects << self
     @game.updatable_objects << self
@@ -29,6 +27,7 @@ class Walker
     @@walkers << self
 
     init_step_time
+    init_position
   end
 
   # step_time is the number of frames it takes to take 1 step
@@ -38,12 +37,21 @@ class Walker
     puts "New walker, step_time: #{@step_time}"
   end
 
+  def init_position
+    @x = 0#rand(config['no_lanes'])
+    @y = 0#rand(config['no_steps'])
+  end
+
   def config
     @game.config
   end
 
   def Walker.at?(x, y)
     @@walkers.detect { |w| w.x == x and w.y == y }
+  end
+
+  def other_walker_at?(x, y)
+    @@walkers.detect { |w| w.x == x and w.y == y and w != self }
   end
 
   def index
