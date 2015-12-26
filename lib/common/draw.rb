@@ -4,8 +4,16 @@ module Draw
     self.image.draw(
       actual_x,
       actual_y,
-      0
+      z_index
     )
+  end
+
+  def z_index
+    if self.is_a?(Walker)
+      1
+    else
+      0
+    end
   end
 
   def actual_x

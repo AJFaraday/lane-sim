@@ -5,3 +5,4 @@ no_lanes: 5
 no_walkers: 20
 features:
   Blocker: 2
+  Exit: 2

@@ -17,7 +17,7 @@ class Blocker < Feature
   end
 
   def update
-    # Blockers never change position.
+    # Blockers don't do anything.
   end
 
 end

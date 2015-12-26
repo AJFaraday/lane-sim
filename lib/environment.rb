@@ -14,5 +14,6 @@ require File.join(File.dirname(__FILE__),'walker.rb')
 
 require File.join(File.dirname(__FILE__),'feature.rb')
 require File.join(File.dirname(__FILE__),'features','blocker.rb')
+require File.join(File.dirname(__FILE__),'features','exit.rb')
 
 require File.join(File.dirname(__FILE__),'game.rb')

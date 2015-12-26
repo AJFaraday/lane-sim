@@ -30,6 +30,10 @@ class Walker
 
     init_step_time
     init_position
+
+    puts "Walker added".ljust(20) +
+           ('#' * @@walkers.count)
+
   end
 
   # step_time is the number of frames it takes to take 1 step
@@ -47,8 +51,8 @@ class Walker
     @game.config
   end
 
-  def Walker.at?(x, y)
-    @@walkers.detect { |w| w.x == x and w.y == y }
+  def Walker.at(x, y)
+    @@walkers.select { |w| w.x == x and w.y == y }
   end
 
   def other_walker_at?(x, y)
@@ -71,6 +75,14 @@ class Walker
   # Polymorphic method, done differently elsewhere.
   def image
     Walker::IMAGE
+  end
+
+  def destroy!
+    @game.updatable_objects.delete(self)
+    @game.drawable_objects.delete(self)
+    @@walkers.delete(self)
+    puts "Walker removed".ljust(20) +
+           ('#' * @@walkers.count)
   end
 
 end
