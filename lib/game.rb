@@ -3,7 +3,7 @@ class Game < Gosu::Window
   attr_accessor :drawable_objects, :updatable_objects
   attr_accessor :grid, :config, :frame
 
-  def initialize(filename='1-lane.yml')
+  def initialize(filename='basic.yml')
     @config = Config.new(filename)
     @frame = 0
     @drawable_objects = []
