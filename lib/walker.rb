@@ -34,12 +34,11 @@ class Walker
   def init_step_time
     @step_time = (rand(10)* 10)
     @step_time += 10
-    puts "New walker, step_time: #{@step_time}"
   end
 
   def init_position
-    @x = 0#rand(config['no_lanes'])
-    @y = 0#rand(config['no_steps'])
+    @x = rand(config['no_lanes'])
+    @y = rand(config['no_steps'])
   end
 
   def config
