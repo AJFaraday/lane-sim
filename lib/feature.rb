@@ -10,8 +10,8 @@ class Feature
     @y = y
     @attrs = attrs
     @@features ||= []
-    init_position
     @@features << self
+    init_position
     @game.drawable_objects << self
     @game.updatable_objects << self
     class_init if self.respond_to?(:class_init)

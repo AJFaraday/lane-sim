@@ -9,16 +9,29 @@ module WalkerMovement
   end
 
   def take_step
+    @moved_in_step = false
+    consider_going_down
+    return if @moved_in_step
     if not blocked_in_front?
-      if blocking_behind? and not blocked_left?
-        step_left
-      else
-        step_forward
-      end
+      step_forward
     elsif not blocked_right?
       step_right
     elsif not blocked_left?
       step_left
+    end
+  end
+
+  def consider_going_down
+    @move_down_count ||= 0
+    if blocked_left?
+      @move_down_count = 0
+    else
+      @move_down_count += 1
+    end
+    if @move_down_count > 10 and not blocked_left?
+      step_left
+      @move_down_count = 0
+      @moved_in_step = true
     end
   end
 

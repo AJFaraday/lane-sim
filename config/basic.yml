@@ -1,10 +1,12 @@
 lane_width: 20 #px
 step_size: 20 #px
+show_grid: false
+
 no_steps: 30
-no_lanes: 50
+no_lanes: 5
 no_walkers: 10
 features:
-  Blocker: 10
-  Exit: 10
-  Entrance: 10
-  Portal: 10
+  Blocker: 3
+  Exit: 1
+  Entrance: 1
+  Portal: 1
