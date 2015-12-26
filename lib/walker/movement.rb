@@ -14,9 +14,9 @@ module WalkerMovement
     return if @moved_in_step
     if not blocked_in_front?
       step_forward
-    elsif not blocked_right?
+    elsif not blocked_right? and not blocked_right_ahead?
       step_right
-    elsif not blocked_left?
+    elsif not blocked_left? and not blocked_left_ahead?
       step_left
     end
   end
