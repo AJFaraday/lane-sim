@@ -15,4 +15,8 @@ module WalkerPosition
       (@x == 0)
   end
 
+  def blocked_behind?
+    other_walker_at?(@x, (@y + 1))
+  end
+
 end

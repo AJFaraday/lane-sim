@@ -10,7 +10,11 @@ module WalkerMovement
 
   def take_step
     if not blocked_in_front?
-      step_forward
+      if blocked_behind? and not blocked_left?
+        step_left
+      else
+        step_forward
+      end
     elsif not blocked_right?
       step_right
     elsif not blocked_left?
