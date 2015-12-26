@@ -1,8 +1,7 @@
 class Game < Gosu::Window
 
-  #attr_accessor :height, :width
   attr_accessor :drawable_objects, :updatable_objects
-  attr_accessor :grid, :config
+  attr_accessor :grid, :config, :frame
 
   def initialize(filename='1-lane.yml')
     @config = Config.new(filename)
