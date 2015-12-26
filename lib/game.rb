@@ -14,6 +14,7 @@ class Game < Gosu::Window
     super(@init_height, @init_width, {})
 
     init_grid
+    init_walkers
     self.caption = "Lane Simulator"
   end
 
@@ -34,6 +35,13 @@ class Game < Gosu::Window
   def init_grid
     @grid = Grid.new(self)
   end
+
+  def init_walkers
+    @config['no_walkers'].times do
+      Walker.new(self)
+    end
+  end
+
 
   def button_down(id)
     if id == Gosu::KbEscape

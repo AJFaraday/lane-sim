@@ -2,5 +2,5 @@ lane_width: 20 #px
 step_size: 20 #px
 no_steps: 20
 no_lanes: 1
-walkers: 1
+no_walkers: 1
 
