@@ -19,12 +19,14 @@ class Walker
 
   attr_accessor :x, :y
 
-  def initialize(game,x=0,y=0)
+  def initialize(game, x=0, y=0)
     @x = x
     @y = y
     @game = game
     @game.drawable_objects << self
     @game.updatable_objects << self
+    @@walkers ||= []
+    @@walkers << self
 
     init_step_time
   end
@@ -39,5 +41,13 @@ class Walker
   def config
     @game.config
   end
-  
+
+  def Walker.at?(x, y)
+    @@walkers.detect { |w| w.x == x and w.y == y }
+  end
+
+  def index
+    @@walkers.index(self)
+  end
+
 end

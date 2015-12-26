@@ -1,7 +1,7 @@
 module WalkerMovement
 
   def update
-    take_step if moving_frame?
+    take_step if moving_frame? and !blocked_in_front?
   end
 
   def moving_frame?
