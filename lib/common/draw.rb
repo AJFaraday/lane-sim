@@ -6,6 +6,7 @@ module Draw
       actual_y,
       z_index
     )
+    class_draw if self.respond_to?(:class_draw)
   end
 
   def z_index

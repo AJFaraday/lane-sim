@@ -8,6 +8,14 @@ class Portal < Feature
     )
   )
 
+  POINTER_IMAGE = Gosu::Image.new(
+    File.join(
+      File.dirname(__FILE__),
+      '..', '..', 'images',
+      'portal-pointer.png'
+    )
+  )
+
   def image
     Portal::IMAGE
   end
@@ -19,6 +27,18 @@ class Portal < Feature
       nil, nil,
       counterpart: self
     )
+    @angle_to_counterpart = Gosu.angle(
+      @x, @y,
+      @counterpart.x, @counterpart.y
+    )
+  end
+
+  def class_draw
+    POINTER_IMAGE.draw_rot(
+      (actual_x + 10),
+      (actual_y + 10), 0.5,
+      @angle_to_counterpart
+    )
   end
 
   def update
@@ -28,6 +48,5 @@ class Portal < Feature
       end
     end
   end
-
 
 end
