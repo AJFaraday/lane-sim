@@ -1,5 +1,14 @@
 class Walker
 
+  # contains position awareness methods
+  include WalkerPosition
+
+  # contains movement rules, all of 'update' method
+  include WalkerMovement
+
+  # contains drawing rules, all of 'draw' method
+  include WalkerDraw
+
   IMAGE = Gosu::Image.new(
     File.join(
       File.dirname(__FILE__),
@@ -20,10 +29,6 @@ class Walker
     init_step_time
   end
 
-  def config
-    @game.config
-  end
-
   # step_time is the number of frames it takes to take 1 step
   def init_step_time
     @step_time = (rand(10)* 10)
@@ -31,35 +36,8 @@ class Walker
     puts "New walker, step_time: #{@step_time}"
   end
 
-  def draw
-    IMAGE.draw(
-      actual_x,
-      actual_y,
-      0
-    )
-  end
-
-  def update
-    if moving_frame?
-      @y -= 1
-      loop_back if @y < 0
-    end
-  end
-
-  def loop_back
-    @y = (config['no_steps'] - 1)
-  end
-
-  def moving_frame?
-    (@game.frame % @step_time) == 0
-  end
-
-  def actual_x
-    @x * config['step_size']
-  end
-  
-  def actual_y
-    @y * config['step_size']
+  def config
+    @game.config
   end
   
 end
