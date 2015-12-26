@@ -7,7 +7,7 @@ class Walker
   include WalkerMovement
 
   # contains drawing rules, all of 'draw' method
-  include WalkerDraw
+  include Draw
 
   IMAGE = Gosu::Image.new(
     File.join(
@@ -19,8 +19,10 @@ class Walker
 
   attr_accessor :x, :y
 
-  def initialize(game)
+  def initialize(game, x=nil, y=nil)
     @game = game
+    @x = x if x
+    @y = y if y
     @game.drawable_objects << self
     @game.updatable_objects << self
     @@walkers ||= []
@@ -37,8 +39,8 @@ class Walker
   end
 
   def init_position
-    @x = rand(config['no_lanes'])
-    @y = rand(config['no_steps'])
+    @x ||= rand(config['no_lanes'])
+    @y ||= rand(config['no_steps'])
   end
 
   def config
@@ -53,8 +55,22 @@ class Walker
     @@walkers.detect { |w| w.x == x and w.y == y and w != self }
   end
 
+  def any_object_at?(x, y)
+    @@walkers.detect { |w| w.x == x and w.y == y and w != self } or
+      @game.obstacles.detect { |f| f.x == x and f.y == y }
+  end
+
   def index
     @@walkers.index(self)
+  end
+
+  def all
+    @@walkers
+  end
+
+  # Polymorphic method, done differently elsewhere.
+  def image
+    Walker::IMAGE
   end
 
 end

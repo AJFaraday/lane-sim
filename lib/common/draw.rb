@@ -1,7 +1,7 @@
-module WalkerDraw
+module Draw
 
   def draw
-    Walker::IMAGE.draw(
+    self.image.draw(
       actual_x,
       actual_y,
       0
