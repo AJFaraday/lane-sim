@@ -8,7 +8,9 @@ class Feature
     @game = game
     @x = x
     @y = y
+    @@features ||= []
     init_position
+    @@features << self
     @game.drawable_objects << self
     @game.updatable_objects << self
     class_init if self.respond_to?(:class_init)
@@ -21,10 +23,15 @@ class Feature
   def init_position
     @x ||= rand(config['no_lanes'])
     @y ||= rand(config['no_steps'])
+    init_position if Feature.at?(@x, @y)
   end
 
   def update
     # update behaviour is defined by specific classes
+  end
+
+  def Feature.at?(x,y)
+    @@features.detect{|f| f.x == x and f.y == y}
   end
 
 end
