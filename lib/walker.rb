@@ -52,6 +52,7 @@ class Walker
   end
 
   def Walker.at(x, y)
+    @@walkers ||= []
     @@walkers.select { |w| w.x == x and w.y == y }
   end
 
