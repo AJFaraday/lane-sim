@@ -30,7 +30,7 @@ class Feature
   def teleport
     @x = rand(config['no_lanes'])
     @y = rand(config['no_steps'])
-    self.teleport if other_feature_at?(@x, @y)
+    self.teleport if other_feature_at?(@x, @y) or Walker.at(@x, @y).any?
   end
 
   def update
