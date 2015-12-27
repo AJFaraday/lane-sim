@@ -20,10 +20,12 @@ class Walker
     )
   )
 
-  def initialize(game, x=nil, y=nil)
+  def initialize(game, x=nil, y=nil, step_time=nil)
     @game = game
     @x = x if x
     @y = y if y
+    @step_time = step_time
+
     @game.drawable_objects << self
     @game.updatable_objects << self
     @@walkers ||= []
@@ -33,12 +35,11 @@ class Walker
     init_position
 
     @game.log("Walker added")
-
   end
 
   # step_time is the number of frames it takes to take 1 step
   def init_step_time
-    @step_time = (rand(10)* 10)
+    @step_time ||= (rand(10)* 10)
     @step_time += 10
   end
 
