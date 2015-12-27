@@ -39,4 +39,11 @@ class Feature
     @@features.detect{|f| f.x == x and f.y == y}
   end
 
+  def things_here
+    things = []
+    things << Walker.at(@x, @y)
+    things << Player.at(@x, @y)
+    things.flatten
+  end
+
 end

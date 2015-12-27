@@ -16,6 +16,7 @@ class Game < Gosu::Window
     init_grid
     init_walkers
     init_features
+    init_player
     self.caption = "Lane Simulator"
   end
 
@@ -43,6 +44,12 @@ class Game < Gosu::Window
     end
   end
 
+  def init_player
+    if @config['playable']
+      Player.new(self)
+    end
+  end
+
   def init_features
     @config['features'].each do |kls, count|
       kls = Kernel.const_get(kls)
@@ -52,10 +59,17 @@ class Game < Gosu::Window
     end
   end
 
+  def any_object_at?(x, y)
+    Walker.all.detect { |w| w.x == x and w.y == y and w != self } or
+      @obstacles.detect { |f| f.x == x and f.y == y }
+  end
+
   def button_down(id)
-    if id == Gosu::KbEscape
-      close
-    end
+    close if id == Gosu::KbEscape
+  end
+
+  def log(message)
+    puts "#{message.ljust(25)}#{Walker.count} #{'#' * Walker.count}"
   end
 
 end

@@ -42,9 +42,9 @@ class Portal < Feature
   end
 
   def update
-    Walker.at(@x, @y).each do |walker|
-      unless walker.teleported_recently?
-        walker.teleport(@counterpart.x, @counterpart.y)
+    things_here.each do |thing|
+      unless thing.teleported_recently?
+        thing.teleport(@counterpart.x, @counterpart.y)
       end
     end
   end

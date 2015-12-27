@@ -1,15 +1,16 @@
 class Walker
 
   # contains position awareness methods
-  include WalkerPosition
+  include Position
 
   # contains movement rules, all of 'update' method
+  include Movement
   include WalkerMovement
 
   # contains drawing rules, all of 'draw' method
   include Draw
 
-  include WalkerTeleport
+  include Teleport
 
   IMAGE = Gosu::Image.new(
     File.join(
@@ -18,8 +19,6 @@ class Walker
       'walker.png'
     )
   )
-
-  attr_accessor :x, :y
 
   def initialize(game, x=nil, y=nil)
     @game = game
@@ -33,8 +32,7 @@ class Walker
     init_step_time
     init_position
 
-    puts "Walker added".ljust(25) +
-           ('#' * @@walkers.count)
+    @game.log("Walker added")
 
   end
 
@@ -62,17 +60,16 @@ class Walker
     @@walkers.detect { |w| w.x == x and w.y == y and w != self }
   end
 
-  def any_object_at?(x, y)
-    @@walkers.detect { |w| w.x == x and w.y == y and w != self } or
-      @game.obstacles.detect { |f| f.x == x and f.y == y }
-  end
-
   def index
     @@walkers.index(self)
   end
 
   def self.all
     @@walkers
+  end
+
+  def self.count
+    @@walkers.count
   end
 
   # Polymorphic method, done differently elsewhere.
@@ -84,8 +81,7 @@ class Walker
     @game.updatable_objects.delete(self)
     @game.drawable_objects.delete(self)
     @@walkers.delete(self)
-    puts "Walker removed".ljust(25) +
-           ('#' * @@walkers.count)
+    @game.log("Walker removed")
   end
 
 end

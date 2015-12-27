@@ -13,8 +13,8 @@ class Exit < Feature
   end
 
   def update
-    Walker.at(@x, @y).each do |walker|
-      walker.destroy!
+    things_here.each do |thing|
+      thing.destroy!
     end
   end
 

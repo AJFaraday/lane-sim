@@ -11,6 +11,8 @@ module Draw
 
   def z_index
     if self.is_a?(Walker)
+      2
+    elsif self.is_a?(Player)
       1
     else
       0
@@ -18,7 +20,7 @@ module Draw
   end
 
   def actual_x
-    @x * config['step_size']
+    @x * config['lane_width']
   end
 
   def actual_y
