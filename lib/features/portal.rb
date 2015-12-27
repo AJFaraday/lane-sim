@@ -39,6 +39,18 @@ class Portal < Feature
     ).to_i
   end
 
+  def set_counterpart(other_portal)
+    @counterpart.destroy! if @counterpart
+    @counterpart = nil
+    if other_portal.is_a?(Portal)
+      @counterpart = other_portal
+      set_angle_to_counterpart
+      unless other_portal.counterpart == self
+        other_portal.set_counterpart(self)
+      end
+    end
+  end
+
   def class_draw
     POINTER_IMAGE.draw_rot(
       (actual_x + 10),
@@ -53,6 +65,12 @@ class Portal < Feature
         thing.teleport(@counterpart.x, @counterpart.y)
       end
     end
+  end
+
+  def destroy!
+    @game.updatable_objects.delete(self)
+    @game.drawable_objects.delete(self)
+    @@features.delete(self)
   end
 
 end

@@ -15,10 +15,24 @@ class Map
       line[0..@game.no_lanes].chars.each_with_index do |char, x|
         kls = Map.key[char]
         if kls.is_a?(Array)
-          #TODO
+          make_portal(kls, x, y)
         elsif kls
           kls.new(@game, x, y)
         end
+      end
+    end
+  end
+
+  def make_portal(array, x, y)
+    if array[0] == Portal
+      @portals ||= {}
+      @portals[array[1]] ||= []
+      portal = Portal.new(@game, x, y)
+      if @portals[array[1]].any?
+        portal.set_counterpart(@portals[array[1]][0])
+        @portals[array[1]] << portal
+      else
+        @portals[array[1]] << portal
       end
     end
   end

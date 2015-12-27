@@ -95,6 +95,7 @@ class Player
   end
 
   def self.none?
+    @@players ||= []
     @@players.empty?
   end
 
