@@ -12,8 +12,6 @@ It simulates lanes, dummy.
 
 To change the lane simulation, modify config/basic.yml
 
-|lane\_width|The width of individual lanes in pixels. (do not change)|
-|step\_size|The size of individual steps in pixels. (do not change)|
 |show\_grid|show, or don't show the grid|
 |no\_steps|How many steps are on the visible road.|
 |no\_walkers|The number of individual walkers.|

@@ -3,6 +3,9 @@ class Game < Gosu::Window
   attr_accessor :drawable_objects, :updatable_objects
   attr_accessor :grid, :config, :frame, :obstacles
 
+  Game::STEP_SIZE = 20 #px
+  Game::LANE_WIDTH = 20 #px
+
   def initialize(filename='basic.yml')
     @config = Config.new(filename)
     @frame = 0
@@ -37,8 +40,8 @@ class Game < Gosu::Window
   end
 
   def init_field
-    @init_height = @config['lane_width'] * @config['no_lanes']
-    @init_width = @config['step_size'] * @config['no_steps']
+    @init_height = Game::LANE_WIDTH * @config['no_lanes']
+    @init_width = Game::STEP_SIZE * @config['no_steps']
   end
 
   def init_grid

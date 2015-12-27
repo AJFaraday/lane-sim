@@ -20,11 +20,11 @@ module Draw
   end
 
   def actual_x
-    @x * config['lane_width']
+    @x * Game::LANE_WIDTH
   end
 
   def actual_y
-    @y * config['step_size']
+    @y * Game::STEP_SIZE
   end
 
 end

@@ -9,8 +9,8 @@ class Grid
 
   def init_lines
     config['no_lanes'].times do |lane|
-      left = config['lane_width'] * lane
-      right = left + config['lane_width']
+      left = Game::LANE_WIDTH * lane
+      right = left + Game::LANE_WIDTH
       top = 0
       bottom = @game.height
       @lines << GridLine.new(left, top, left, bottom)
@@ -21,7 +21,7 @@ class Grid
 
   def make_cross_lines(left, right)
     config['no_steps'].times do |step|
-      height = config['step_size'] * step
+      height = Game::STEP_SIZE * step
       @lines << GridLine.new(
         left, height, right, height
       )
