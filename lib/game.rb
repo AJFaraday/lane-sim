@@ -1,5 +1,7 @@
 class Game < Gosu::Window
 
+  include InitUnits
+
   attr_accessor :drawable_objects, :updatable_objects
   attr_accessor :grid, :config, :frame, :obstacles
 
@@ -46,27 +48,6 @@ class Game < Gosu::Window
 
   def init_grid
     @grid = Grid.new(self)
-  end
-
-  def init_walkers
-    @config['no_walkers'].times do
-      Walker.new(self)
-    end
-  end
-
-  def init_player
-    if @config['playable']
-      Player.new(self)
-    end
-  end
-
-  def init_features
-    @config['features'].each do |kls, count|
-      kls = Kernel.const_get(kls)
-      count.times do
-        kls.new(self)
-      end
-    end
   end
 
   def button_down(id)

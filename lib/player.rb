@@ -19,10 +19,12 @@ class Player
     Player::IMAGE
   end
 
-  def initialize(game, x=nil, y=nil)
+  def initialize(game, x=nil, y=nil, step_time=nil)
     @game = game
     @x = x if x
     @y = y if y
+    @step_time = step_time
+
     @game.drawable_objects << self
     @game.updatable_objects << self
     @@players ||= []
@@ -39,7 +41,7 @@ class Player
   end
 
   def init_step_time
-    @step_time = config['player_step_time']
+    @step_time ||= config['player_step_time']
     @step_time *= 10
   end
 

@@ -1,0 +1,56 @@
+show_grid: false
+
+# Player options
+playable: false
+player_step_time: 2
+
+# Field
+no_steps: 20
+no_lanes: 4
+
+# Random placement
+random_walkers: 0
+random_features:
+  Blocker: 0
+  Exit: 0
+  Entrance: 0
+  Portal: 0
+  Coin: 0
+
+# Declared placement
+walkers:
+  - step_time: 6
+    x: 0
+    y: 1
+  - step_time: 5
+    x: 0
+    y: 5
+  - step_time: 4
+    x: 0
+    y: 9
+  - step_time: 3
+    x: 0
+    y: 13
+  - step_time: 2
+    x: 0
+    y: 17
+features:
+  Entrance:
+    - x: 0
+      y: 19
+  Blocker:
+    - x: 0
+      y: 0
+    - x: 1
+      y: 0
+    - x: 2
+      y: 0
+  Exit:
+    - x: 3
+      y: 0
+  Portal:
+    - x: 3
+      y: 1
+      counterpart:
+        x: 3
+        y: 19

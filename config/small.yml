@@ -2,8 +2,8 @@ show_grid: false
 
 no_steps: 3
 no_lanes: 3
-no_walkers: 1
-features:
+random_walkers: 1
+random_features:
   Blocker: 1
   Exit: 1
   Entrance: 1

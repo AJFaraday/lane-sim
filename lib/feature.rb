@@ -42,6 +42,7 @@ class Feature
   end
 
   def Feature.at?(x,y)
+    @@features ||= []
     @@features.detect{|f| f.x == x and f.y == y}
   end
 

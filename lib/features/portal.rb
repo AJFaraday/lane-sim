@@ -16,6 +16,8 @@ class Portal < Feature
     )
   )
 
+  attr_accessor :counterpart
+
   def image
     Portal::IMAGE
   end
@@ -27,10 +29,14 @@ class Portal < Feature
       nil, nil,
       counterpart: self
     )
+    set_angle_to_counterpart
+  end
+
+  def set_angle_to_counterpart
     @angle_to_counterpart = Gosu.angle(
       @x, @y,
       @counterpart.x, @counterpart.y
-    )
+    ).to_i
   end
 
   def class_draw

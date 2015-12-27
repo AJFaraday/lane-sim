@@ -16,7 +16,7 @@ To change the lane simulation, modify config/basic.yml
 |no\_steps|How many steps are on the visible road.|
 |no\_walkers|The number of individual walkers.|
 |no\_lanes|The number of lanes walkers can change to.|
-|features|The types, and number of features on the map|
+|random_features|The types, and number of features on the map|
 
 Features:
 
