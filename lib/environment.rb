@@ -19,7 +19,9 @@ require File.join(File.dirname(__FILE__),'features','blocker.rb')
 require File.join(File.dirname(__FILE__),'features','exit.rb')
 require File.join(File.dirname(__FILE__),'features','entrance.rb')
 require File.join(File.dirname(__FILE__),'features','portal.rb')
+require File.join(File.dirname(__FILE__),'features','coin.rb')
 
+require File.join(File.dirname(__FILE__),'player','score.rb')
 require File.join(File.dirname(__FILE__),'player.rb')
 
 require File.join(File.dirname(__FILE__),'game.rb')

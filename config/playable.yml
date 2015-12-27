@@ -2,14 +2,15 @@ lane_width: 20 #px
 step_size: 20 #px
 show_grid: false
 
-no_steps: 10
+no_steps: 20
 no_lanes: 3
 no_walkers: 1
 features:
   Blocker: 1
   Exit: 1
-  Entrance: 1 
+  Entrance: 1
   Portal: 1
+  Coin: 1
 
 playable: true
 player_step_time: 3

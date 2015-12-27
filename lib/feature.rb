@@ -24,7 +24,13 @@ class Feature
   def init_position
     @x ||= rand(config['no_lanes'])
     @y ||= rand(config['no_steps'])
-    init_position if other_feature_at?(@x, @y)
+    self.teleport if other_feature_at?(@x, @y)
+  end
+
+  def teleport
+    @x = rand(config['no_lanes'])
+    @y = rand(config['no_steps'])
+    self.teleport if other_feature_at?(@x, @y)
   end
 
   def update
@@ -32,7 +38,7 @@ class Feature
   end
 
   def other_feature_at?(x,y)
-    @@features.detect{|f| f.x == x and f.y == y and f.x != self.x and f.y != self.y}
+    @@features.detect{|f| f.x == x and f.y == y and f != self}
   end
 
   def Feature.at?(x,y)

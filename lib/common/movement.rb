@@ -21,14 +21,14 @@ module Movement
   end
 
   def step_right
-    unless @x == (config['no_lanes'] - 1)
+    unless blocked_right?
       @stepped = true
       @x += 1
     end
   end
 
   def step_left
-    unless @x == 0
+    unless blocked_left?
       @x -= 1
       @stepped = true
     end

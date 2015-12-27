@@ -5,6 +5,8 @@ class Player
   include Teleport
   include Position
 
+  include PlayerScore
+
   IMAGE = Gosu::Image.new(
     File.join(
       File.dirname(__FILE__),
@@ -82,12 +84,20 @@ class Player
     @game.updatable_objects.delete(self)
     @game.drawable_objects.delete(self)
     @@players.delete(self)
-    @game.log("Player died")
+    @game.log("Player died. Score: #{score}")
   end
 
   def self.at(x,y)
     @@players ||= []
     @@players.select{|p| p.x == x and p.y == y}
+  end
+
+  def self.none?
+    @@players.empty?
+  end
+
+  def self.all
+    @@players
   end
 
 end
