@@ -1,5 +1,12 @@
 class Game < Gosu::Window
 
+  START_BUTTONS = [
+    Gosu::KbUp,
+    Gosu::KbDown,
+    Gosu::KbRight,
+    Gosu::KbLeft  
+  ]
+
   include InitUnits
   include InitMap
 
@@ -15,6 +22,7 @@ class Game < Gosu::Window
     @drawable_objects = []
     @updatable_objects = []
     @obstacles = []
+    @started = false
     init_map
     init_field
 
@@ -32,9 +40,11 @@ class Game < Gosu::Window
   end
 
   def update
-    updatable_objects.each { |ob| ob.update }
-    check_for_players
-    @frame += 1
+    if @started
+      updatable_objects.each { |ob| ob.update }
+      check_for_players
+      @frame += 1
+    end
   end
 
   def check_for_players
@@ -48,6 +58,7 @@ class Game < Gosu::Window
   end
 
   def button_down(id)
+    @started = true if START_BUTTONS.include?(id)
     close if id == Gosu::KbEscape
   end
 
