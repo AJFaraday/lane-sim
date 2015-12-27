@@ -1,6 +1,7 @@
 class Game < Gosu::Window
 
   include InitUnits
+  include InitMap
 
   attr_accessor :drawable_objects, :updatable_objects
   attr_accessor :grid, :config, :frame, :obstacles
@@ -14,6 +15,7 @@ class Game < Gosu::Window
     @drawable_objects = []
     @updatable_objects = []
     @obstacles = []
+    init_map
     init_field
 
     super(@init_height, @init_width, {})
@@ -23,6 +25,10 @@ class Game < Gosu::Window
     init_features
     init_player
     self.caption = "Lane Simulator"
+  end
+
+  def init_grid
+    @grid = Grid.new(self)
   end
 
   def update
@@ -39,15 +45,6 @@ class Game < Gosu::Window
 
   def draw
     drawable_objects.each { |ob| ob.draw }
-  end
-
-  def init_field
-    @init_height = Game::LANE_WIDTH * @config['no_lanes']
-    @init_width = Game::STEP_SIZE * @config['no_steps']
-  end
-
-  def init_grid
-    @grid = Grid.new(self)
   end
 
   def button_down(id)

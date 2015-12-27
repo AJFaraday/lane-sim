@@ -4,22 +4,22 @@ module Position
 
   def blocked_in_front?
     any_object_at?(@x, (@y - 1)) or
-      (@y == 0 and any_object_at?(@x, (config['no_steps'] - 1)))
+      (@y == 0 and any_object_at?(@x, (@game.no_steps - 1)))
   end
 
   def blocked_behind?
     any_object_at?(@x, (@y + 1)) or
-      (@y == config['no_steps'] - 1 and any_object_at?(@x, 0))
+      (@y == @game.no_steps - 1 and any_object_at?(@x, 0))
   end
 
   def blocked_right?
     any_object_at?((@x + 1), @y) or
-      (@x == (config['no_lanes'] - 1))
+      (@x == (@game.no_lanes - 1))
   end
 
   def blocked_right_ahead?
     any_object_at?((@x + 1), (@y - 1)) or
-      (@x == (config['no_lanes'] - 1))
+      (@x == (@game.no_lanes - 1))
   end
 
   def blocked_left?

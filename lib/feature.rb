@@ -22,14 +22,14 @@ class Feature
   end
 
   def init_position
-    @x ||= rand(config['no_lanes'])
-    @y ||= rand(config['no_steps'])
+    @x ||= rand(@game.no_lanes)
+    @y ||= rand(@game.no_steps)
     self.teleport if other_feature_at?(@x, @y)
   end
 
   def teleport
-    @x = rand(config['no_lanes'])
-    @y = rand(config['no_steps'])
+    @x = rand(@game.no_lanes)
+    @y = rand(@game.no_steps)
     self.teleport if other_feature_at?(@x, @y) or Walker.at(@x, @y).any?
   end
 

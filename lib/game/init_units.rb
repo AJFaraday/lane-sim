@@ -20,7 +20,7 @@ module InitUnits
   end
 
   def init_player
-    if @config['playable']
+    if @config['playable'] and Player.none?
       if config['player']
         Player.new(
           self,

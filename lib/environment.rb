@@ -24,5 +24,8 @@ require File.join(File.dirname(__FILE__),'features','coin.rb')
 require File.join(File.dirname(__FILE__),'player','score.rb')
 require File.join(File.dirname(__FILE__),'player.rb')
 
+require File.join(File.dirname(__FILE__),'map.rb')
+
 require File.join(File.dirname(__FILE__),'game','init_units.rb')
+require File.join(File.dirname(__FILE__),'game','init_map.rb')
 require File.join(File.dirname(__FILE__),'game.rb')

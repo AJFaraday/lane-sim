@@ -1,0 +1,16 @@
+show_grid: false
+
+# Player options
+playable: true
+player_step_time: 2
+
+no_steps: 10
+no_lanes: 1
+random_walkers: 0
+random_features:
+  Blocker: 0
+  Exit: 0
+  Entrance: 0
+  Portal: 0
+
+map: sausage

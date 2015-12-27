@@ -35,8 +35,8 @@ class Player
   end
 
   def init_position
-    @x ||= rand(config['no_lanes'])
-    @y ||= rand(config['no_steps'])
+    @x ||= rand(@game.no_lanes)
+    @y ||= rand(@game.no_steps)
     init_position if Walker.at(@x, @y).any? or Feature.at?(@x, @y)
   end
 

@@ -16,7 +16,7 @@ module Movement
     unless blocked_behind?
       @y += 1
       @stepped = true
-      loop_back if @y >= config['no_steps']
+      loop_back if @y >= @game.no_steps
     end
   end
 
@@ -36,7 +36,7 @@ module Movement
 
   def loop_back
     if @y <= 0
-      @y = (config['no_steps'] - 1)
+      @y = (@game.no_steps - 1)
     else
       @y = 0
     end

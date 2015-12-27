@@ -44,8 +44,8 @@ class Walker
   end
 
   def init_position
-    @x ||= rand(config['no_lanes'])
-    @y ||= rand(config['no_steps'])
+    @x ||= rand(@game.no_lanes)
+    @y ||= rand(@game.no_steps)
   end
 
   def config
