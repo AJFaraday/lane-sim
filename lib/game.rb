@@ -55,7 +55,7 @@ class Game < Gosu::Window
   end
 
   def log(message)
-    puts "#{message.ljust(30)}#{Walker.count} #{'#' * Walker.count}"
+    puts "#{@frame.to_s.ljust(10)}#{message.ljust(30)}#{Walker.count} #{'#' * Walker.count}"
   end
 
 end
