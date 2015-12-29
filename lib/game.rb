@@ -101,6 +101,7 @@ class Game < Gosu::Window
   end
 
   def close
+    puts "closing"
     Walker.reset!
     Feature.reset!
     Player.reset!

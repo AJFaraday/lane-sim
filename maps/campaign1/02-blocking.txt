@@ -1,10 +1,10 @@
        |
    b   |
-    b  |
+   wb  |
      bc|
       b|
-   b   |
-  b    |
+   b  w|
+  bw   |
 cb     |
 b      |
-w      |
+w     p|
