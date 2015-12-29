@@ -73,6 +73,10 @@ class Walker
     @@walkers.count
   end
 
+  def self.reset!
+    @@walkers = []
+  end
+
   # Polymorphic method, done differently elsewhere.
   def image
     Walker::IMAGE

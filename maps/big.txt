@@ -1,0 +1,19 @@
+1x                x2|
+                    |
+  bbbbbbbbbbbbbbbb  |
+  c              c  |
+  c              c  |
+  c              c  |
+  c              c  |
+  c              c  |
+                    |
+                    |
+                    |
+                    |
+                    |
+        nnnn        |
+        nnnn        |
+wwwwwwwwwwwwwwwwwwww|
+                    |
+                    |
+2        p         1|

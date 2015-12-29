@@ -12,7 +12,6 @@ random_features:
   Exit: 0
   Entrance: 0
   Portal: 0
-  Coin: 0
+
 maps:
-  - big
-  - sausage
+  - simple

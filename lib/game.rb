@@ -4,7 +4,7 @@ class Game < Gosu::Window
     Gosu::KbUp,
     Gosu::KbDown,
     Gosu::KbRight,
-    Gosu::KbLeft  
+    Gosu::KbLeft
   ]
 
   include InitUnits
@@ -16,8 +16,9 @@ class Game < Gosu::Window
   Game::STEP_SIZE = 20 #px
   Game::LANE_WIDTH = 20 #px
 
-  def initialize(filename='basic.yml')
-    @config = Config.new(filename)
+  def initialize(config, map_index)
+    @config = config
+    @map_index = map_index
     @frame = 0
     @drawable_objects = []
     @updatable_objects = []
@@ -64,6 +65,12 @@ class Game < Gosu::Window
 
   def log(message)
     puts "#{@frame.to_s.ljust(10)}#{message.ljust(30)}#{Walker.count} #{'#' * Walker.count}"
+  end
+
+  def close
+    Walker.reset!
+    Feature.reset!
+    super
   end
 
 end

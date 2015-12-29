@@ -16,8 +16,8 @@ module InitMap
   end
 
   def init_map
-    if @config['map']
-      Map.new(self, @config['map'])
+    if @config['maps']
+      Map.new(self, @config['maps'][@map_index])
     end
     init_field
   end

@@ -29,3 +29,5 @@ require File.join(File.dirname(__FILE__),'map.rb')
 require File.join(File.dirname(__FILE__),'game','init_units.rb')
 require File.join(File.dirname(__FILE__),'game','init_map.rb')
 require File.join(File.dirname(__FILE__),'game.rb')
+
+require File.join(File.dirname(__FILE__),'game_manager.rb')

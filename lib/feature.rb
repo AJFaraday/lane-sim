@@ -53,4 +53,8 @@ class Feature
     things.flatten
   end
 
+  def self.reset!
+    @@features = []
+  end
+
 end
