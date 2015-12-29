@@ -7,6 +7,8 @@ class Player
 
   include PlayerScore
 
+  attr_accessor :game
+
   IMAGE = Gosu::Image.new(
     File.join(
       File.dirname(__FILE__),
@@ -32,12 +34,19 @@ class Player
 
     init_step_time
     init_position
+    init_score
   end
 
   def init_position
     @x ||= rand(@game.no_lanes)
     @y ||= rand(@game.no_steps)
     init_position if Walker.at(@x, @y).any? or Feature.at?(@x, @y)
+  end
+
+  def init_score
+    @score = 0
+    @score_display = ScoreDisplay.new(self)
+    @game.drawable_objects << @score_display
   end
 
   def init_step_time
@@ -85,6 +94,7 @@ class Player
   def destroy!
     @game.updatable_objects.delete(self)
     @game.drawable_objects.delete(self)
+    @game.drawable_objects.delete(self.score_display)
     @game.log("Player died.")
     @@players.delete(self)
   end

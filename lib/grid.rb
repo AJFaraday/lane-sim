@@ -35,8 +35,9 @@ class Grid
   def draw
     if config['show_grid']
       @lines.each { |line| line.draw }
+    else
+      draw_edges
     end
-    draw_edges
   end
 
   def draw_edges
