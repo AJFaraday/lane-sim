@@ -13,5 +13,6 @@ random_features:
   Entrance: 0
   Portal: 0
 
-maps:
-  - simple
+levels:
+  - map: 'campaign1/01-simple'
+    target: 25

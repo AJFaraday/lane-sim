@@ -13,16 +13,16 @@ class GameManager
   end
 
   def next_map
-    if @map_index.nil?
-      @map_index = 0
+    if @level_index.nil?
+      @level_index = 0
     else
-      @map_index += 1
+      @level_index += 1
     end
-    if @config['maps']
+    if @config['levels']
       if map_defined?
         play_level
         next_map if PROGRESSING_STATUSES.include?(@game.status)
-      elsif @map_index == 0
+      elsif @level_index == 0
         play_level
       end
     else
@@ -31,8 +31,8 @@ class GameManager
   end
 
   def play_level
-    puts "Starting level #{@map_index + 1}"
-    @game = Game.new(@config, @map_index)
+    puts "Starting level #{@level_index + 1}"
+    @game = Game.new(@config, @level_index)
     @game.show
   end
 
@@ -40,7 +40,7 @@ class GameManager
   # If there's a list of maps, check the next one is there.
   #
   def map_defined?
-    map_name = @config['maps'][@map_index]
+    map_name = @config['levels'][@level_index]['map']
     path = File.join(
       File.dirname(__FILE__),
       '..',

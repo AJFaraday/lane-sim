@@ -13,6 +13,8 @@ random_features:
   Entrance: 0
   Portal: 0
   Coin: 0
-maps:
-  - big
-  - sausage
+levels:
+  - map: big
+    target: 20
+  - map: sausage
+    target: 10

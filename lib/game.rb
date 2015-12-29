@@ -11,14 +11,14 @@ class Game < Gosu::Window
   include InitMap
 
   attr_accessor :drawable_objects, :updatable_objects
-  attr_accessor :grid, :config, :frame, :obstacles, :status
+  attr_accessor :grid, :config, :frame, :obstacles, :status, :target
 
   Game::STEP_SIZE = 20 #px
   Game::LANE_WIDTH = 20 #px
 
-  def initialize(config, map_index)
+  def initialize(config, level_index)
     @config = config
-    @map_index = map_index
+    @level_index = level_index
     @frame = 0
     @drawable_objects = []
     @updatable_objects = []
@@ -32,11 +32,17 @@ class Game < Gosu::Window
     init_grid
     init_random_units
     init_player
+    init_target
     self.caption = "Lane Simulator"
   end
 
   def init_grid
     @grid = Grid.new(self)
+  end
+
+  def init_target
+    @target ||= config['target']
+    @target ||= 10
   end
 
   def update
@@ -64,8 +70,17 @@ class Game < Gosu::Window
   end
 
   def log(message)
+    puts "#{@frame.to_s.ljust(10)}#{message.ljust(30)} Walkers: #{Walker.count} Score: #{score_display}"
+  end
+
+  def score_display
     player = Player.all[0]
-    puts "#{@frame.to_s.ljust(10)}#{message.ljust(30)} Walkers: #{Walker.count} Score: #{player.score if player}"
+    if player
+      player.score ||= 0
+      "#{player.score}/#{@target}"
+    else
+      ""
+    end
   end
 
   def close

@@ -1,9 +1,15 @@
 class Map
 
-  def initialize(game, file_name)
+  def initialize(game, level)
     @game = game
-    @file_name = file_name
+    @level = level
+    @file_name = @level['map']
     init_units
+    init_target
+  end
+
+  def init_target
+    @game.target = @level['target']
   end
 
   def init_units
