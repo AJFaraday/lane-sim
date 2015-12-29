@@ -17,3 +17,5 @@ random_features:
 levels:
   - map: 'campaign1/01-simple'
     target: 5
+  - map: 'campaign1/02-blocking'
+    target: 5
