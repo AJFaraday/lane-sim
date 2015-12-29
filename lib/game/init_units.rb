@@ -1,8 +1,8 @@
 module InitUnits
 
-  def init_walkers
+  def init_declared_units
+    init_declared_features
     init_declared_walkers
-    init_random_walkers
   end
 
   def init_declared_walkers
@@ -33,9 +33,9 @@ module InitUnits
     end
   end
 
-  def init_features
-    init_declared_features
+  def init_random_units
     init_random_features
+    init_random_walkers
   end
 
   def init_declared_features

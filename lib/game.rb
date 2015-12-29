@@ -30,8 +30,8 @@ class Game < Gosu::Window
     super(@init_height, @init_width, {})
 
     init_grid
-    init_walkers
-    init_features
+    init_declared_units
+    init_random_units
     init_player
     self.caption = "Lane Simulator"
   end
