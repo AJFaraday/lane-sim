@@ -3,6 +3,7 @@ show_grid: false
 # Player options
 playable: true
 player_step_time: 2
+full_screen: true
 
 no_steps: 10
 no_lanes: 1

@@ -36,6 +36,54 @@ class Grid
     if config['show_grid']
       @lines.each { |line| line.draw }
     end
+    draw_edges
+  end
+
+  def draw_edges
+    draw_top_edge
+    draw_bottom_edge
+    draw_left_edge
+    draw_right_edge
+  end
+
+  def draw_top_edge
+    Gosu.draw_quad(
+      0, 0, Gosu::Color::WHITE,
+      0, 1, Gosu::Color::WHITE,
+      @game.width, 0, Gosu::Color::WHITE,
+      @game.width, 1, Gosu::Color::WHITE,
+      0
+    )
+  end
+
+  def draw_bottom_edge
+    Gosu.draw_quad(
+      0, @game.height, Gosu::Color::WHITE,
+      0, (@game.height - 1), Gosu::Color::WHITE,
+      @game.width, @game.height, Gosu::Color::WHITE,
+      @game.width, (@game.height - 1), Gosu::Color::WHITE,
+      0
+    )
+  end
+
+  def draw_left_edge
+    Gosu.draw_quad(
+      0, 0, Gosu::Color::WHITE,
+      1, 0, Gosu::Color::WHITE,
+      0, @game.height,  Gosu::Color::WHITE,
+      1, @game.height, Gosu::Color::WHITE,
+      0
+    )
+  end
+
+  def draw_right_edge
+    Gosu.draw_quad(
+      @game.width, 0, Gosu::Color::WHITE,
+      (@game.width - 1), 0, Gosu::Color::WHITE,
+      @game.width, @game.height,  Gosu::Color::WHITE,
+      (@game.width - 1), @game.height, Gosu::Color::WHITE,
+      0
+    )
   end
 
 end

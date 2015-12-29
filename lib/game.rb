@@ -27,7 +27,7 @@ class Game < Gosu::Window
     init_map
     init_field
 
-    super(@init_height, @init_width, {})
+    super(@init_height, @init_width, {fullscreen: @config['full_screen']})
 
     init_grid
     init_random_units
