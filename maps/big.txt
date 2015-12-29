@@ -1,19 +1,19 @@
-1x                x2|
-                    |
-  bbbbbbbbbbbbbbbb  |
-  c              c  |
-  c              c  |
-  c              c  |
-  c              c  |
-  c              c  |
-                    |
-                    |
-                    |
-                    |
-                    |
-        nnnn        |
-        nnnn        |
-wwwwwwwwwwwwwwwwwwww|
-                    |
-                    |
-2        p         1|
+1x               x2|
+                   |
+  bbbbbbbbbbbbbbb  |
+  c             c  |
+  c             c  |
+  c             c  |
+  c             c  |
+  c             c  |
+                   |
+                   |
+                   |
+                   |
+                   |
+        nnn        |
+        nnn        |
+wwwwwwwwwwwwwwwwwww|
+                   |
+                   |
+2        p        1|

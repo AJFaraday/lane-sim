@@ -3,8 +3,9 @@ class GameManager
   WIN = 'win'
   LOSE = 'lose'
   QUIT = 'quit'
+  SKIP = 'skip'
 
-  PROGRESSING_STATUSES = [WIN, QUIT]
+  PROGRESSING_STATUSES = [WIN, SKIP]
 
   def initialize(filename='basic.yml')
     @config = Config.new(filename)
@@ -19,16 +20,20 @@ class GameManager
     end
     if @config['maps']
       if map_defined?
-        @game = Game.new(@config, @map_index)
-        @game.show
-        if PROGRESSING_STATUSES.include?(@game.status)
-          next_map
-        end
+        play_level
+        next_map if PROGRESSING_STATUSES.include?(@game.status)
       elsif @map_index == 0
-        @game = Game.new(@config, @map_index)
-        @game.show
+        play_level
       end
+    else
+      play_level
     end
+  end
+
+  def play_level
+    puts "Starting level #{@map_index + 1}"
+    @game = Game.new(@config, @map_index)
+    @game.show
   end
 
   #

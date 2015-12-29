@@ -23,7 +23,7 @@ class Game < Gosu::Window
     @drawable_objects = []
     @updatable_objects = []
     @obstacles = []
-    @started = false
+    @started = !@config['playable']
     init_map
     init_field
 
@@ -60,6 +60,7 @@ class Game < Gosu::Window
   def button_down(id)
     @started = true if START_BUTTONS.include?(id)
     quit if id == Gosu::KbEscape
+    skip if id == Gosu::KbP
   end
 
   def log(message)
@@ -88,6 +89,12 @@ class Game < Gosu::Window
     @status = GameManager::QUIT
     close
   end
+
+  def skip
+    @status = GameManager::SKIP
+    close
+  end
+
 
 end
 
