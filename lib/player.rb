@@ -94,7 +94,7 @@ class Player
   def destroy!
     @game.updatable_objects.delete(self)
     @game.drawable_objects.delete(self)
-    @game.drawable_objects.delete(self.score_display)
+    @game.drawable_objects.delete(@score_display)
     @game.log("Player died.")
     @@players.delete(self)
   end

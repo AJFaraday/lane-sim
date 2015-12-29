@@ -1,5 +1,7 @@
 class Game < Gosu::Window
 
+  FONT = Gosu::Font.new(16)
+
   START_BUTTONS = [
     Gosu::KbUp,
     Gosu::KbDown,
@@ -33,11 +35,16 @@ class Game < Gosu::Window
     init_random_units
     init_player
     init_target
+    init_time_display
     self.caption = "Lane Simulator"
   end
 
   def init_grid
     @grid = Grid.new(self)
+  end
+
+  def init_time_display
+    @drawable_objects << TimeDisplay.new(self)
   end
 
   def init_target
