@@ -5,7 +5,7 @@ module PlayerScore
   def score_up
     @score ||= 0
     @score += 1
-    @game.log("Player got a coin. Score: #{@score}")
+    @game.log("Player got a coin.")
   end
 
 end

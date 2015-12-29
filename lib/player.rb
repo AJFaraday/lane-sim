@@ -85,8 +85,8 @@ class Player
   def destroy!
     @game.updatable_objects.delete(self)
     @game.drawable_objects.delete(self)
+    @game.log("Player died.")
     @@players.delete(self)
-    @game.log("Player died. Score: #{score}")
   end
 
   def self.at(x,y)
@@ -100,7 +100,12 @@ class Player
   end
 
   def self.all
+    @@players ||= []
     @@players
+  end
+
+  def self.reset!
+    @@players = []
   end
 
 end

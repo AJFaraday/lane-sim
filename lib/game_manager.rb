@@ -1,5 +1,11 @@
 class GameManager
 
+  WIN = 'win'
+  LOSE = 'lose'
+  QUIT = 'quit'
+
+  PROGRESSING_STATUSES = [WIN, QUIT]
+
   def initialize(filename='basic.yml')
     @config = Config.new(filename)
     next_map
@@ -15,11 +21,13 @@ class GameManager
       if map_defined?
         @game = Game.new(@config, @map_index)
         @game.show
-        next_map
+        if PROGRESSING_STATUSES.include?(@game.status)
+          next_map
+        end
+      elsif @map_index == 0
+        @game = Game.new(@config, @map_index)
+        @game.show
       end
-    elsif @map_index == 0
-      @game = Game.new(@config, @map_index)
-      @game.show
     end
   end
 
