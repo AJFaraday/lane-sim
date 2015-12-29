@@ -49,6 +49,7 @@ class Game < Gosu::Window
     if @started
       updatable_objects.each { |ob| ob.update }
       check_for_players
+      check_for_victory
       @frame += 1
     end
   end
@@ -56,6 +57,15 @@ class Game < Gosu::Window
   def check_for_players
     if @config['playable'] and Player.none? and @status.nil?
       lose
+    end
+  end
+
+  def check_for_victory
+    Player.all.each do |player|
+      if player.score and player.score >= @target
+        log("Player has won!")
+        win
+      end
     end
   end
 

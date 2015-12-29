@@ -6,7 +6,7 @@ player_step_time: 2
 
 no_steps: 20
 no_lanes: 3
-target: 15
+target: 5
 
 # Random placement
 random_walkers: 1

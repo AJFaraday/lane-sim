@@ -24,6 +24,8 @@ class GameManager
         next_map if PROGRESSING_STATUSES.include?(@game.status)
       elsif @level_index == 0
         play_level
+      else
+        puts "You won it all! Contratulations!"
       end
     else
       play_level
@@ -37,17 +39,22 @@ class GameManager
   end
 
   #
-  # If there's a list of maps, check the next one is there.
+  # If there's a list of maps, cmap_nameheck the next one is there.
   #
   def map_defined?
-    map_name = @config['levels'][@level_index]['map']
-    path = File.join(
-      File.dirname(__FILE__),
-      '..',
-      'maps',
-      "#{map_name}.txt"
-    )
-    File.exists?(path)
+    level = @config['levels'][@level_index]
+    if level
+      map_name = level['map']
+      path = File.join(
+        File.dirname(__FILE__),
+        '..',
+        'maps',
+        "#{map_name}.txt"
+      )
+      File.exists?(path)
+    else
+      false
+    end
   end
 
 end

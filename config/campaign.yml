@@ -15,4 +15,4 @@ random_features:
 
 levels:
   - map: 'campaign1/01-simple'
-    target: 25
+    target: 5
