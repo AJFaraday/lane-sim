@@ -25,7 +25,7 @@ class GameManager
       elsif @level_index == 0
         play_level
       else
-        puts "You won it all! Contratulations!"
+        puts "You won it all! Congratulations!"
       end
     else
       play_level
