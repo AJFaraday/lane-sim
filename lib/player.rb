@@ -46,7 +46,6 @@ class Player
   def init_score
     @score = 0
     @score_display = ScoreDisplay.new(self)
-    @game.drawable_objects << @score_display
   end
 
   def init_step_time
@@ -94,14 +93,13 @@ class Player
   def destroy!
     @game.updatable_objects.delete(self)
     @game.drawable_objects.delete(self)
-    @game.drawable_objects.delete(@score_display)
     @game.log("Player died.")
     @@players.delete(self)
   end
 
-  def self.at(x,y)
+  def self.at(x, y)
     @@players ||= []
-    @@players.select{|p| p.x == x and p.y == y}
+    @@players.select { |p| p.x == x and p.y == y }
   end
 
   def self.none?

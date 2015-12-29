@@ -3,6 +3,7 @@ class ScoreDisplay
   def initialize(player)
     @player = player
     @game = player.game
+    @game.drawable_objects << self
   end
 
   def draw

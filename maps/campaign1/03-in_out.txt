@@ -1,0 +1,16 @@
+xxxxx|
+     |
+w c  |
+  b  |
+   w |
+w c  |
+w b  |
+     |
+  cw |
+  bw |
+w    |
+  c  |
+  bw |
+  p  |
+w  w |
+n bn |

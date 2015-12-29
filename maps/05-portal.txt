@@ -1,0 +1,19 @@
+bbbbbbbbbbbbbbbbbb5|
+bbbbbbbbbbbbb   b  |
+bbbbbbbbbb         |
+bbbbbbbb           |
+bbbbbb      4c  4  |
+bbbbb       w      |
+bbbb               |
+bbb     3c  3     b|
+bb      w        bb|
+b               bbb|
+    2c  2      bbbb|
+    w         bbbbb|
+             bbbbbb|
+1c  1       bbbbbbb|
+w          bbbbbbbb|
+n         bbbbbbbbb|
+n       bbbbbbbbbbb|
+n     bbbbbbbbbbbbb|
+5   bbbbbbbbbbbbbbb|

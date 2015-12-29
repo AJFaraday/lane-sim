@@ -12,7 +12,7 @@ class Game < Gosu::Window
   include InitUnits
   include InitMap
 
-  attr_accessor :drawable_objects, :updatable_objects
+  attr_accessor :drawable_objects, :updatable_objects, :game
   attr_accessor :grid, :config, :frame, :obstacles, :status, :target
 
   Game::STEP_SIZE = 20 #px
@@ -101,7 +101,6 @@ class Game < Gosu::Window
   end
 
   def close
-    puts "closing"
     Walker.reset!
     Feature.reset!
     Player.reset!
