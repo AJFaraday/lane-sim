@@ -1,0 +1,31 @@
+show_grid: false
+
+# Player options
+playable: true
+player_step_time: 2
+full_screen: true
+
+no_steps: 10
+no_lanes: 1
+random_walkers: 0
+random_features:
+  Blocker: 0
+  Exit: 0
+  Entrance: 0
+  Portal: 0
+
+levels:
+  - map: 'medium_campaign/01-overtaking'
+    target: 5
+  - map: 'medium_campaign/02-wide'
+    target: 1
+  - map: medium_campaign/03-in_out
+    target: 20
+  - map: medium_campaign/04-portal
+    target: 10
+  - map: medium_campaign/05-march
+    target: 5
+  - map: medium_campaign/06-timebomb
+    target: 20
+  - map: medium_campaign/07-timebomb2
+    target: 20
