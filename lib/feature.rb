@@ -11,7 +11,7 @@ class Feature
     @attrs = attrs
     @@features ||= []
     @@features << self
-    init_position
+    init_position if x.nil? or y.nil?
     @game.drawable_objects << self
     @game.updatable_objects << self
     class_init if self.respond_to?(:class_init)
