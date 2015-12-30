@@ -1,5 +1,18 @@
 # lane-sim
+
 It simulates lanes, dummy.
+
+The walkers will take steps forward at different speeds.
+If they can not go forwards, they go right.
+If they can not go forwards or right, they go left.
+If they take ten steps with no obstacles on the left, they go right.
+
+The turtle is player-controlled, it tries to collect coins while avoiding the walkers.
+
+Blockers act as an obstacle, nothing can pass them.
+Entrances occasionally add new walkers.
+Exits remove walkers or players that step on them.
+Portals teleport walkers or players to a corresponding portal.
 
 ## Installation instructions (linux)
 
@@ -54,6 +67,3 @@ Key:
 |x|Exit (red dot)|
 |p|Portal (blue dot) - with a random counterpart portal|
 |0-9|Portal (blue dot) - With matched counterpart (will connect to the same number)|
-
-
-
