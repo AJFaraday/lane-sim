@@ -11,6 +11,7 @@ class Game < Gosu::Window
 
   include InitUnits
   include InitMap
+  include GameEndings
 
   attr_accessor :drawable_objects, :updatable_objects, :game
   attr_accessor :grid, :config, :frame, :obstacles, :status, :target
@@ -99,34 +100,6 @@ class Game < Gosu::Window
       ""
     end
   end
-
-  def close
-    Walker.reset!
-    Feature.reset!
-    Player.reset!
-    super
-  end
-
-  def win
-    @status = GameManager::WIN
-    close
-  end
-
-  def lose
-    @status = GameManager::LOSE
-    close
-  end
-
-  def quit
-    @status = GameManager::QUIT
-    close
-  end
-
-  def skip
-    @status = GameManager::SKIP
-    close
-  end
-
 
 end
 
