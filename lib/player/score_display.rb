@@ -11,7 +11,7 @@ class ScoreDisplay
       text, 2, 2, 2,
       0, 0,
       1, 1,
-      0xff_aaaaaa
+      0xff_dddddd
     )
   end
 

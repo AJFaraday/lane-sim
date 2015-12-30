@@ -1,6 +1,6 @@
 class Game < Gosu::Window
 
-  FONT = Gosu::Font.new(18)
+  FONT = Gosu::Font.new(26)
 
   START_BUTTONS = [
     Gosu::KbUp,

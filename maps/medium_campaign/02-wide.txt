@@ -1,0 +1,7 @@
+c     b      b   xx|
+  bw     b      b  |
+     b      b      |
+ bw     b      b   |
+    b      b       |
+bw     b      b    |
+nnnb      b       p|

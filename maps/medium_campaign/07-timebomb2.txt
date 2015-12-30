@@ -1,0 +1,24 @@
+              b2 1b       |
+              b p b       |
+              b   b       |
+              b   b       |
+              b   b       |
+              b   b       |
+              b   b       |
+              b   b       |
+              b   b       |
+              b   b       |
+              b  bb       |
+              b   b       |
+              b   b       |
+3      ccc    b   b  ccc 3|
+              b   b       |
+              b   b       |
+              bb  b       |
+              b   b       |
+              b   b       |
+              b   b       |
+              bwwwb       |
+              bwwwb       |
+              bnnnb       |
+        2     bnnnb   1   |
