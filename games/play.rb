@@ -1,4 +1,4 @@
-require './../lib/environment.rb'
+require_relative './../lib/environment.rb'
 
 
 GameManager.new('playable.yml')
