@@ -15,11 +15,11 @@ random_features:
   Portal: 0
 
 levels:
-  - map: 'campaign1/01-simple'
+  - map: 'easy_campaign/01-simple'
     target: 5
-  - map: 'campaign1/02-blocking'
+  - map: 'easy_campaign/02-blocking'
     target: 5
-  - map: 'campaign1/03-in_out'
+  - map: 'easy_campaign/03-in_out'
     target: 5
-  - map: 'campaign1/04-portal'
+  - map: 'easy_campaign/04-portal'
     target: 5

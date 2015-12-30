@@ -8,6 +8,3 @@ PLATFORMS
 
 DEPENDENCIES
   gosu (= 0.10.4)
-
-BUNDLED WITH
-   1.10.5
