@@ -8,7 +8,7 @@ class GameManager
   PROGRESSING_STATUSES = [WIN, SKIP]
 
   def initialize(filename='basic.yml')
-    @config = Config.new(filename)
+    @config = LaneSim::Config.new(filename)
     next_map
   end
 
