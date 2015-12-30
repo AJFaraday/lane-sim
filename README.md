@@ -23,6 +23,7 @@ To change the lane simulation, modify any of the files in config/
 |Attribute | Description|
 |----------|-----------|
 |playable|Do we expect someone to play this scenario.|
+|full\_screen|If true, this displays on the full screen, otherwise, it displays in a window.|
 |show\_grid|show, or don't show the grid|
 |no\_steps|How many steps are on the visible road.|
 |no\_lanes|The number of lanes walkers can change to.|
@@ -36,5 +37,23 @@ Features:
 * Entrance: Occasionally adds new walkers.
 * Exit: If a walker steps on this, they leave.
 * Portal: A pair of portals, if a walker steps on one, they are teleported to the other.
+
+Maps:
+
+Map files are stored in maps/ as .txt files. Each character in this file represents one position on the grid.
+
+The width is set by the size of the first row, finished with a pipe (|) character.
+
+Key:
+
+|Character|Object|
+|p|Player (turtle)|
+|w|Walker (arrow)|
+|b|Blocker (stop sign)|
+|n|Entrance (green dot)|
+|x|Exit (red dot)|
+|p|Portal (blue dot) - with a random counterpart portal|
+|0-9|Portal (blue dot) - With matched counterpart (will connect to the same number)|
+
 
 
